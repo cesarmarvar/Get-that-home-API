@@ -1,0 +1,49 @@
+require: rubocop-rails
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - "db//*"
+    - "script//"
+    - "bin/**/"
+    - "node_modules//"
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/MethodLength:
+  Max: 20
+
+Metrics/AbcSize:
+  Max: 30
+
+Style/GlobalVars:
+  Enabled: false
+
+Style/WordArray:
+  MinSize: 10
+
+Style/ClassVars:
+  Enabled: false
+
+HasAndBelongsToMany:
+  Enabled: false
+
+Layout/LineLength:
+  Max: 150
+  IgnoredPatterns: ['\s#']
+
+Metrics/BlockLength:
+  Exclude:
+    - config//*
+    - spec//*
+
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - spec//*
