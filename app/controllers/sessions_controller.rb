@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
         phone: user.phone,
         token: user.token
       }
-      render json: { respond_user }, status: :ok
+      render json: respond_user, status: :ok
     else
       respond_unauthorized("Incorrect email or password")
     end
