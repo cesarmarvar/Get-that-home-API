@@ -4,7 +4,15 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      render json: @user, status: :created
+      respond_user = {
+        user_type: @user.user_type,
+        name: @user.name,
+        email: @user.email,
+        phone: @user.phone,
+        token: @user.token
+      }
+
+      render json: respond_user, status: :created
     else
       render json: { errors: @user.errors }, status: :unprocessable_entity
     end
