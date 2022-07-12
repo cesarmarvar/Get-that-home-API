@@ -2,9 +2,10 @@ Rails.application.routes.draw do
   # sessions
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
+  post "/signup", to: "users#create"
 
   # users
-  resources :users, except: %i[index]
+  resources :users, except: %i[index create]
 
   # properties
   resources :properties
