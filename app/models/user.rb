@@ -6,7 +6,6 @@ class User < ApplicationRecord
   validates :phone, presence: true, length: { in: 6..12 }
   validates :password, length: { minimum: 6 }
 
-  
   # Associations
   has_secure_token
   has_secure_password

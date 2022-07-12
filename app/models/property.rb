@@ -1,4 +1,4 @@
-class Property < ApplicationRecord 
+class Property < ApplicationRecord
   # Validations
   validates :address, presence: true, uniqueness: true
   validates :price, numericality: { less_than: 99_999_999.99 }
