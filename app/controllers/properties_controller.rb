@@ -1,6 +1,7 @@
 class PropertiesController < ApplicationController
-  skip_before_action :authorize, only: %i[index show]
-  before_action :set_property, only: %i[show update destroy]
+  skip_before_action :authorize, only: %i[index show random]
+  before_action :set_property, only: %i[show]
+  before_action :set_property_by_owner_user, only: %i[update destroy]
 
   def index
     @properties = Property.all
@@ -8,11 +9,15 @@ class PropertiesController < ApplicationController
   end
 
   def show
-    render json: @property
+    if @property
+      render json: @property
+    else
+      render json: [], status: :not_found
+    end
   end
 
   def create
-    @property = Property.new(property_params, user: current_user)
+    @property = current_user.properties.new(property_params)
     if @property.save
       render json: @property, status: :created
     else
@@ -42,6 +47,10 @@ class PropertiesController < ApplicationController
 
   def set_property
     @property = Property.find(params[:id])
+  end
+
+  def set_property_by_owner_user
+    @property = current_user.properties.find(params[:id])
   end
 
   def property_params
