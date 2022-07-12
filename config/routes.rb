@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   get "/random", to: "properties#random"
 
   # buyer properties
-  get "/saved-properties", to: "buyer_properties#index"
+  get "/saved_properties", to: "buyer_properties#index"
+  post "/save_property", to: "buyer_properties#create"
 end
