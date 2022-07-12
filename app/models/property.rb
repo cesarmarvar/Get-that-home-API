@@ -1,6 +1,8 @@
 class Property < ApplicationRecord
   belongs_to :user
   has_many_attached :photos
+  has_many :buyer_property, dependent: :destroy
+
 
   validates :address, presence: true, uniqueness: true
   validates :price, numericality: { less_than: 99_999_999.99 }
