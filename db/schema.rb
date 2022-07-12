@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_11_234507) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_12_003930) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "buyer_properties", force: :cascade do |t|
     t.bigint "property_id", null: false
     t.bigint "user_id", null: false
-    t.integer "type"
+    t.integer "property_status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["property_id"], name: "index_buyer_properties_on_property_id"
