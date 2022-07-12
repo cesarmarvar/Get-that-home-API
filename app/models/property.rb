@@ -14,5 +14,5 @@ class Property < ApplicationRecord
   # Associations
   belongs_to :user
   has_many_attached :photos
-  has_many :buyer_property, dependent: :destroy
+  has_many :buyer_properties, dependent: :destroy
 end
