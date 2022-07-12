@@ -9,8 +9,8 @@ class User < ApplicationRecord
   # Associations
   has_secure_token
   has_secure_password
-  has_many :property, dependent: :destroy
-  has_many :buyer_property, dependent: :destroy
+  has_many :properties, dependent: :destroy
+  has_many :buyer_properties, dependent: :destroy
 
   def invalidate_token
     update(token: nil)
