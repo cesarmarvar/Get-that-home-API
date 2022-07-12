@@ -13,5 +13,7 @@ Rails.application.routes.draw do
 
   # buyer properties
   get "/saved_properties", to: "buyer_properties#index"
-  post "/save_property", to: "buyer_properties#create"
+  patch "/save_property/:id", to: "buyer_properties#update"
+  delete "/save_property/:id", to: "buyer_properties#destroy"
+  resource :save_property, only: %i[create], controller: :buyer_properties
 end
