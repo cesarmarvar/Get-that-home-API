@@ -1,15 +1,12 @@
 class BuyerPropertiesController < ApplicationController
   before_action :authorize
 
-  def index 
-    if current_user.user_type == 0
+  def index
+    if current_user.user_type.zero?
       render json: current_user.properties
     else
-      render json: current_user.buyer_properties
+      properties = current_user.buyer_properties.map(&:property)
+      render json: properties
     end
   end
-
-  
-
-
 end

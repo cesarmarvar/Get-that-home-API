@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  # sessions
+  post "/login", to: "sessions#create"
+  delete "/logout", to: "sessions#destroy"
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  # users
+  resources :users, except: %i[index]
+
+  # properties
+  resources :properties
+  get "/random", to: "properties#random"
+
+  # buyer properties
+  get "/saved-properties", to: "buyer_properties#index"
 end
