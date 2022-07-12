@@ -1,6 +1,6 @@
 class BuyerProperty < ApplicationRecord
   # Validations
-  enum type: { favorite: 0, contacted: 1 }
+  enum property_status: { favorite: 0, contacted: 1 }
 
   # Associations
   belongs_to :property
