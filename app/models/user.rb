@@ -12,4 +12,8 @@ class User < ApplicationRecord
   has_secure_password
   has_many :property, dependent: :destroy
   has_many :buyer_property, dependent: :destroy
+
+  def invalidate_token
+    update(token: nil)
+  end
 end
