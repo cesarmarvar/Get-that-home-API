@@ -1,10 +1,11 @@
 class User < ApplicationRecord
   # Validations
+  validates :user_type, presence: true
   enum user_type: { landlord: 0, buyer: 1 }
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :phone, presence: true, length: { in: 6..12 }
-  validates :password, length: { minimum: 6 }
+  validates :password, length: { minimum: 6 }, on: :create
 
   # Associations
   has_secure_token
