@@ -1,9 +1,5 @@
-class Property < ApplicationRecord
-  belongs_to :user
-  has_many_attached :photos
-  has_many :buyer_property, dependent: :destroy
-
-
+class Property < ApplicationRecord 
+  # Validations
   validates :address, presence: true, uniqueness: true
   validates :price, numericality: { less_than: 99_999_999.99 }
   validates :maintenance, numericality: { less_than: 99_999_999.99 }, allow_nil: true
@@ -14,4 +10,9 @@ class Property < ApplicationRecord
   validates :bedrooms, presence: true
   validates :bathrooms, presence: true
   validates :area, presence: true
+
+  # Associations
+  belongs_to :user
+  has_many_attached :photos
+  has_many :buyer_property, dependent: :destroy
 end
