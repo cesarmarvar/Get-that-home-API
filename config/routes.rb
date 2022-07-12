@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   post "/signup", to: "users#create"
 
   # users
-  resources :users, except: %i[index create]
+  resource :profile, except: %i[index create], controller: :users
 
   # properties
   resources :properties
