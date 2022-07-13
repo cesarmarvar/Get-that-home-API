@@ -36,9 +36,9 @@ gem "image_processing", "~> 1.2"
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem "rack-cors"
 
-gem 'net-http'
+gem "net-http"
 
-gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+gem "faker", git: "https://github.com/faker-ruby/faker.git", branch: "master"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
