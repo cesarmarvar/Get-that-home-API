@@ -6,7 +6,7 @@ class BuyerPropertiesController < ApplicationController
     if current_user.user_type == "landlord"
       render json: current_user.properties
     else
-      properties = current_user.buyer_properties.map{ |e| { id: e.id, property_status: e.property_status, property: e.property } }
+      properties = current_user.buyer_properties.map { |e| { id: e.id, property_status: e.property_status, property: e.property } }
       render json: properties
     end
   end
