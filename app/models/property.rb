@@ -10,6 +10,8 @@ class Property < ApplicationRecord
   validates :bedrooms, presence: true
   validates :bathrooms, presence: true
   validates :area, presence: true
+  validates :lat, presence: true
+  validates :long, presence: true
 
   # Associations
   belongs_to :user
