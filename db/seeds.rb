@@ -16,7 +16,7 @@ User.destroy_all
   if user.save
     puts "user#{n+1} created succesfully"
     if user.user_type == "landlord"
-      2.times do |n|
+      5.times do |n|
         contract = rand(2)
         property = Property.new(
           address: Faker::Address.full_address,
@@ -24,7 +24,8 @@ User.destroy_all
           maintenance: contract.zero? ? Faker::Number.number(digits: 3) : nil,
           property_type: rand(2),
           pets: rand(2) == 1 ? true : false,
-          # pets: false,
+          lat: -11.997058935306287,
+          long: -77.05497094430477,
           about: "Great place to live",
           bedrooms: rand(1...4),
           bathrooms: rand(1...3),

@@ -46,7 +46,29 @@ class PropertiesController < ApplicationController
   private
 
   def set_property
-    @property = Property.find(params[:id])
+    data = Property.find(params[:id])
+    @property = {
+      id: data.id,
+      address: data.address,
+      price: data.price,
+      maintenance: data.maintenance,
+      property_type: data.property_type,
+      pets: data.pets,
+      about: data.about,
+      bedrooms: data.bedrooms,
+      bathrooms: data.bathrooms,
+      area: data.area,
+      operation_type: data.operation_type,
+      is_active: data.is_active,
+      lat: data.lat,
+      long: data.long,
+      user_info: {
+        id: data.user.id,
+        name: data.user.name,
+        email: data.user.email,
+        phone: data.user.phone
+      }
+    }
   end
 
   def set_property_by_owner_user
