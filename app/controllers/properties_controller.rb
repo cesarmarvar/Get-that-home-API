@@ -60,6 +60,8 @@ class PropertiesController < ApplicationController
       area: data.area,
       operation_type: data.operation_type,
       is_active: data.is_active,
+      lat: data.lat,
+      long: data.long,
       user_info: {
         id: data.user.id,
         name: data.user.name,
