@@ -26,6 +26,10 @@ User.destroy_all
           pets: rand(2) == 1 ? true : false,
           lat: -11.997058935306287,
           long: -77.05497094430477,
+          image_urls: [
+            "https://www.aveliving.com/AVE/media/Property_Images/Florham%20Park/hero/flor-apt-living-(2)-hero.jpg?ext=.jpg",
+            "https://image1.apartmentfinder.com/i2/DoSkR2Q6HnD7k7exBblnHcPtkR_0qNnddaO0dCfUgMY/110/image.jpg"
+          ],
           about: "Great place to live",
           bedrooms: rand(1...4),
           bathrooms: rand(1...3),
@@ -34,7 +38,6 @@ User.destroy_all
           user: user,
         )
         if property.save
-          property.photos.attach(io: File.open('db/assets/apartment.jpg'), filename: 'apartment.jpg')
           puts "Property created succesfully"
         else
           puts "property#{n+1} #{property.errors.full_messages.join(", ")}"
