@@ -67,7 +67,8 @@ class PropertiesController < ApplicationController
         name: data.user.name,
         email: data.user.email,
         phone: data.user.phone
-      }
+      },
+      image_urls: data.image_urls
     }
   end
 
@@ -76,6 +77,6 @@ class PropertiesController < ApplicationController
   end
 
   def property_params
-    params.permit(:address, :price, :maintenance, :property_type, :pets, :about, :bedrooms, :bathrooms, :area, :photos, :operation_type, :is_active)
+    params.permit(:address, :price, :maintenance, :image_urls, :property_type, :pets, :about, :bedrooms, :bathrooms, :area, :lat, :long, :operation_type, :is_active)
   end
 end
